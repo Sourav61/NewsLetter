@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
+require('dotenv').config();
 
 const app = express();
 app.use(express.static('public'));
@@ -41,7 +42,7 @@ app.post("/", function (req, res) {
 
     const options = {
         method: "POST",
-        auth: "Sourav:bed805efbc8f1793cbc5d1f1d780f5da-us17"
+        auth: process.env.AUTH
     }
 
     const request = https.request(url, options, function (response) {
@@ -65,12 +66,6 @@ app.post("/failiure", function (req, res) {
     res.redirect("/");
 })
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 3003, function () {
     console.log("Server is running at port 3003")
 })
-
-// App Id
-// bed805efbc8f1793cbc5d1f1d780f5da-us17
-
-// List Id
-// 7cbc798901
