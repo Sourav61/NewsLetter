@@ -4,6 +4,8 @@ const request = require("request");
 const https = require("https");
 require('dotenv').config();
 
+console.log(process.env.AUTH)
+
 const app = express();
 app.use(express.static('public'));
 
